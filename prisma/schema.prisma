@@ -12,3 +12,11 @@ datasource db {
   provider = "mysql"
   url      = "mysql://root:senai@127.0.0.1:3306/auth_db"
 }
+
+// user table
+model user {
+  id         Int          @id @default(autoincrement())
+  name       String
+  email      String       @unique
+  password      String
+}
