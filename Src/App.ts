@@ -1,18 +1,25 @@
 import express from 'express';
 import { prismaClient, } from '../prisma/prisma.ts';
 import type { PrismaClientKnownRequestError } from '@prisma/client/runtime/library';
-
+import { login, register } from './controllers/userController.ts';
 
 enum userColumns {
     NAME = "name",
     EMAIL = "email",
     PASSWORD = "password"
 }
+
 const app = express();
 const PORT = process.env.PORT || 3000;
 
 app.use(express.json());
 
+// publicos
+app.post("/register", register)
+app.post("/login", login)
+
+
+// privados
 app.get('/', (req, res) => {
     res.send('Hello world');
 });
@@ -50,25 +57,8 @@ app.get('/users/:id', async (req, res) => {
     }
 });
 
-app.post("/users", async (req, res) => {
-    try {
-        const { body } = req
-        const userCreated = await prismaClient.user.create({
-            data: {
-                name: body.name,
-                email: body.email,
-                password: body.password,
-            }
-        })
-        return res.status(201).json(userCreated)
-    } catch (error) {
-        if ((error as PrismaClientKnownRequestError).code == "P2002") {
-            res.status(404).send('Email já cadastrado!')
-        }
-        console.log(error);
-        res.status(500).send(`Erro no servidor: ${error}`)
-    }
-})
+
+
 
 app.put("/users/:id", async (req, res) => {
     try {
@@ -115,7 +105,6 @@ app.delete("/users/:id", async(req, res)=>{
         res.status(500).send(`Erro no servidor: ${error}`)
     }
 })
-
 
 app.listen(PORT, () => {
     console.log(`Server port ${PORT}`);

@@ -11,22 +11,26 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Alekmz/auth_jwt.git"
+    "url": "https://github.com/hayla00/autenticacao-jwt.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Alekmz/auth_jwt/issues"
+    "url": "https://github.com/hayla00/autenticacao-jwt/issues"
   },
-  "homepage": "https://github.com/Alekmz/auth_jwt#readme",
+  "homepage": "https://github.com/hayla00/autenticacao-jwt#readme",
   "dependencies": {
-    "@prisma/client": "^6.14.0",
+    "@prisma/client": "^6.15.0",
+    "bcrypt": "^6.0.0",
     "express": "^5.1.0",
-    "prisma": "^6.14.0"
+    "jsonwebtoken": "^9.0.2",
+    "prisma": "^6.15.0"
   },
   "devDependencies": {
+    "@types/bcrypt": "^6.0.0",
     "@types/express": "^5.0.3",
+    "@types/jsonwebtoken": "^9.0.10",
     "@types/node": "^24.3.0",
     "nodemon": "^3.1.10",
     "ts-node": "^10.9.2",
