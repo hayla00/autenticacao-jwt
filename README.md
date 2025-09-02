@@ -8,8 +8,9 @@ Implementação de autenticação baseada em JWT para APIs e serviços.
 [![Prisma](https://img.shields.io/badge/Prisma-ORM-black?logo=prisma)](https://www.prisma.io/)  
 [![License](https://img.shields.io/badge/license-MIT-lightgrey)](./LICENSE)  
 
+
 Projeto base utilizando **Node.js**, **TypeScript**, **Express** e **Prisma ORM** com autenticação **JWT**.  
-Ideal como ponto de partida para desenvolvimento de APIs modernas e escaláveis.  
+Ideal como ponto de partida para desenvolvimento de APIs modernas e escaláveis. 
 
 ---
 
@@ -20,8 +21,8 @@ Ideal como ponto de partida para desenvolvimento de APIs modernas e escaláveis.
 - [TypeScript](https://www.typescriptlang.org/)  
 - [Prisma ORM](https://www.prisma.io/)  
 - [JWT (JSON Web Token)](https://jwt.io/)  
+- [bcrypt](https://www.npmjs.com/package/bcrypt)  
 - [Nodemon](https://nodemon.io/)  
-
 ---
 
 ## 📦 Instalação  
@@ -38,13 +39,11 @@ npm install -D typescript @types/node @types/express ts-node nodemon
 ### 01/09  
 - Criei as rotas de autenticação (registro e login).  
 - Implementei a geração de **JWT** para autenticar usuários.  
+- Armazenei refresh token no banco de dados.
 
 **O que foi feito tecnicamente:**  
-- Adicionei um controller de autenticação.  
-- Criei middleware para gerar e validar JWT.  
-- Atualizei o schema do Prisma para incluir o usuário.  
+- Adicionei um controller de autenticação (registro e login).
+- Usei bcrypt para hash de senhas..  
+- Atualizei schema do Prisma para incluir a tabela User e Token.
 
-**Próximos passos:**  
-- Implementar refresh token.  
-- Criar testes para as rotas de login e registro.  
 
