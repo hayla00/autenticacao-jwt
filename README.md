@@ -27,7 +27,7 @@ Ideal como ponto de partida para desenvolvimento de APIs modernas e escaláveis.
 
 ## 📦 Instalação  
 
-Se for clone o repositório e instale as dependências:  
+Se for clonar o repositório e instale as dependências:  
 
 ```bash
 npm install express prisma @prisma/client
