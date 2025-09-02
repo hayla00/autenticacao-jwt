@@ -31,3 +31,20 @@ Se for clone o repositório e instale as dependências:
 ```bash
 npm install express prisma @prisma/client
 npm install -D typescript @types/node @types/express ts-node nodemon
+
+
+## 📔 Diário de Aula  
+
+### 01/09  
+- Criei as rotas de autenticação (registro e login).  
+- Implementei a geração de **JWT** para autenticar usuários.  
+
+**O que foi feito tecnicamente:**  
+- Adicionei um controller de autenticação.  
+- Criei middleware para gerar e validar JWT.  
+- Atualizei o schema do Prisma para incluir o usuário.  
+
+**Próximos passos:**  
+- Implementar refresh token.  
+- Criar testes para as rotas de login e registro.  
+
