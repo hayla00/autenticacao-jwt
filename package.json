@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/hayla00/autenticacao-jwt.git"
+    "url": "git+https://github.com/hayla00/autenticacao-jwt.git"
   },
   "keywords": [],
   "author": "",
@@ -21,17 +21,17 @@
   },
   "homepage": "https://github.com/hayla00/autenticacao-jwt#readme",
   "dependencies": {
-    "@prisma/client": "^6.15.0",
+    "@prisma/client": "^6.16.2",
     "bcrypt": "^6.0.0",
     "express": "^5.1.0",
     "jsonwebtoken": "^9.0.2",
-    "prisma": "^6.15.0"
+    "prisma": "^6.16.2"
   },
   "devDependencies": {
     "@types/bcrypt": "^6.0.0",
     "@types/express": "^5.0.3",
     "@types/jsonwebtoken": "^9.0.10",
-    "@types/node": "^24.3.0",
+    "@types/node": "^24.5.2",
     "nodemon": "^3.1.10",
     "ts-node": "^10.9.2",
     "tsx": "^4.20.4",

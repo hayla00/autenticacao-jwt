@@ -2,7 +2,7 @@ import express from 'express';
 import { prismaClient, } from '../prisma/prisma.ts';
 import type { PrismaClientKnownRequestError } from '@prisma/client/runtime/library';
 import { login, register } from './controllers/userController.ts';
-
+import produtoRouter from "./routes/produtosRoutes.ts";
 enum userColumns {
     NAME = "name",
     EMAIL = "email",
@@ -13,6 +13,7 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 app.use(express.json());
+app.use("/api", produtoRouter); 
 
 // publicos
 app.post("/register", register)

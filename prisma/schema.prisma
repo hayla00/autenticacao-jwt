@@ -1,9 +1,3 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
-// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
-// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
-
 generator client {
   provider = "prisma-client-js"
 }
@@ -13,21 +7,40 @@ datasource db {
   url      = "mysql://root:senai@127.0.0.1:3306/auth_db"
 }
 
-// user table
-model user {
-  id       Int     @id @default(autoincrement())
+model User {
+  id       Int       @id @default(autoincrement())
   name     String
-  email    String  @unique
+  email    String    @unique
   password String
-  token    token[]
+  tokens   Token[]
+  produtos Produto[]
 }
 
-// token table
-model token {
+model Produto {
+  id        String   @id @default(uuid())
+  nome      String
+  descricao String?
+  preco     Decimal  @db.Decimal(10, 2)
+  status    Status   @default(DISPONIVEL)
+  estoque   Int
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  userId    Int
+  user      User     @relation(fields: [userId], references: [id])
+
+  @@map("produtos")
+}
+
+model Token {
   id        Int      @id @default(autoincrement())
-  token     String
+  value     String
   type      String
   userId    Int
   expiresAt DateTime
-  user      user     @relation(fields: [userId], references: [id])
+  user      User     @relation(fields: [userId], references: [id])
+}
+
+enum Status {
+  DISPONIVEL
+  EM_FALTA
 }
