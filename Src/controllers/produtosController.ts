@@ -1,6 +1,6 @@
 import type { Response } from "express";
 import { prismaClient } from "../../prisma/prisma.ts";
-import type { AuthRequest } from "../middleware/auth"; // se usou a interface acima
+import type { AuthRequest } from "../middlleware/auth.ts"; // se usou a interface acima
 
 export async function createProduto(req: AuthRequest, res: Response) {
   try {

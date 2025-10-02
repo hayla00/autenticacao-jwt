@@ -5,8 +5,8 @@ import {
   getProduto,
   updateProduto,
   deleteProduto,
-} from "../controllers/produtoController";
-import { auth } from "../middleware/auth";
+} from "../controllers/produtosController.ts";
+import { auth } from "../middlleware/auth.ts";
 
 const router = Router();
 

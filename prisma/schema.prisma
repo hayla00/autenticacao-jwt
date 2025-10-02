@@ -31,6 +31,17 @@ model Produto {
   @@map("produtos")
 }
 
+
+model Pedido {
+  id        Int              @id @default(autoincrement())
+  createdAt DateTime         @default(now())
+  updatedAt DateTime         @updatedAt
+  status    PedidoStatus     @default(ABERTO)
+  userId    Int
+  user      User             @relation(fields: [userId], references: [id])
+  produtos  PedidoProduto[]  // relação N:N com Produto via PedidoProduto
+}
+
 model Token {
   id        Int      @id @default(autoincrement())
   value     String
